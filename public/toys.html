@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toy Links</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #f0f0f0;
+        }
+        h1 { 
+            color: #333; 
+            text-align: center; 
+            margin-bottom: 30px;
+        }
+        ul { 
+            list-style-type: none; 
+            padding: 0; 
+        }
+        li { 
+            margin-bottom: 20px; 
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0052a3;
+        }
+        .disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .disabled:hover {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Toy Links</h1>
+    <ul>
+        <li>
+            Toy 1 - Card delivery
+            <button class="btn" onclick="window.open('https://drone-drop.vercel.app/', '_blank', 'noopener,noreferrer')">Open</button>
+        </li>
+        <li>
+            Toy 2 - Paint
+            <button class="btn" onclick="window.open('https://drone-reveal-game.vercel.app/', '_blank', 'noopener,noreferrer')">Open</button>
+        </li>
+        <li>
+            Toy 3 - Puzzle
+            <button class="btn" onclick="window.open('https://mashreq-puzzle.vercel.app/', '_blank', 'noopener,noreferrer')">Open</button>
+        </li>
+        <li>
+            Toy 4 - Memory game
+            <button class="btn" onclick="window.open('https://memory-game-5qzq58ctg-robert-blagas-projects.vercel.app/', '_blank', 'noopener,noreferrer')">Open</button>
+        </li>
+        <li>
+            Toy 5 - NOT YET
+            <button class="btn disabled" disabled>Open</button>
+        </li>
+    </ul>
+</body>
+</html>
