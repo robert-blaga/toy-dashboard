@@ -1,6 +1,17 @@
 .App {
   text-align: left;
-  padding: 20px;
+}
+
+/* Add smooth transition for scaling */
+[style*="transform"] {
+  transition: transform 0.2s ease-out;
+}
+
+/* Ensure the body takes full viewport height */
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -36,4 +47,76 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.toast-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-notification.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.checkmark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+}
+
+.checkmark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 12px;
+  border: solid #4CAF50;
+  border-width: 0 3px 3px 0;
+  transform: translate(-50%, -60%) rotate(45deg);
+}
+
+.copied-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.copied-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.copied-button.flash::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }

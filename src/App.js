@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import Episode1 from './episode-1/components/Episode1';
+import GameView from './common/GameView';
 
-function App() {
-  const [htmlContent, setHtmlContent] = useState('');
-
-  useEffect(() => {
-    fetch('/toys.html')
-      .then(response => response.text())
-      .then(data => setHtmlContent(data))
-      .catch(error => console.error('Error fetching toys.html:', error));
-  }, []);
-
+function MainApp() {
   return (
-    <div className="App">
-      <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/game/*" element={<GameView />}>
+          <Route path="episode-1" element={<Episode1 />} />
+        </Route>
+        <Route path="/" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App;
+export default MainApp;
